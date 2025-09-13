@@ -3,10 +3,9 @@ import {
   rule,
   Rule,
   RuleBuilder,
-  hyperLayer,
   type Condition,
 } from 'karabiner.ts'
-
+import { modifierLayer } from '../custom-layers/modiferLayer'
 
 const disableOnBuiltInKeyboard: Condition = {
   type: 'device_unless',
@@ -35,40 +34,40 @@ const config: Array<Rule | RuleBuilder> = [
       map('left_command').to('left_option'),
     ]),
 
-  rule('Control Layer')
+  modifierLayer('left_control', 'Control Layer')
     .condition(disableOnBuiltInKeyboard)
     .manipulators([
       // Mouse movement with ASDF
-      map('d', 'left_control').toMouseKey({ y: -1536 }),
-      map('s', 'left_control').toMouseKey({ y: 1536 }),
-      map('a', 'left_control').toMouseKey({ x: -1536 }),
-      map('f', 'left_control').toMouseKey({ x: 1536 }),
+      map('d').toMouseKey({ y: -1536 }),
+      map('s').toMouseKey({ y: 1536 }),
+      map('a').toMouseKey({ x: -1536 }),
+      map('f').toMouseKey({ x: 1536 }),
 
       // Mouse speed controls
-      map('o', 'left_control').toMouseKey({ speed_multiplier: 12.0 }),
-      map('p', 'left_control').toMouseKey({ speed_multiplier: 8.0 }),
-      map('i', 'left_control').toMouseKey({ speed_multiplier: 0.15 }),
-      map('u', 'left_control').toMouseKey({ speed_multiplier: 0.1 }),
+      map('o').toMouseKey({ speed_multiplier: 12.0 }),
+      map('p').toMouseKey({ speed_multiplier: 8.0 }),
+      map('i').toMouseKey({ speed_multiplier: 0.15 }),
+      map('u').toMouseKey({ speed_multiplier: 0.1 }),
 
       // Mouse clicks
-      map('spacebar', 'left_control').toPointingButton('button1'),
-      map('b', 'left_control').toPointingButton('button2'),
+      map('spacebar').toPointingButton('button1'),
+      map('b').toPointingButton('button2'),
 
       // HJKL to Arrow Keys
-      map('h', 'left_control').to('left_arrow'),
-      map('j', 'left_control').to('down_arrow'),
-      map('k', 'left_control').to('up_arrow'),
-      map('l', 'left_control').to('right_arrow'),
+      map('h').to('left_arrow'),
+      map('j').to('down_arrow'),
+      map('k').to('up_arrow'),
+      map('l').to('right_arrow'),
 
       // QWER for scrolling and CV for line navigation
-      map('q', 'left_control').toMouseKey({ horizontal_wheel: 32, speed_multiplier: 1.2 }),
-      map('w', 'left_control').toMouseKey({ vertical_wheel: 32, speed_multiplier: 1.2 }),
-      map('e', 'left_control').toMouseKey({ vertical_wheel: -32, speed_multiplier: 1.2 }),
-      map('r', 'left_control').toMouseKey({ horizontal_wheel: -32, speed_multiplier: 1.2 }),
+      map('q').toMouseKey({ horizontal_wheel: 32, speed_multiplier: 1.2 }),
+      map('w').toMouseKey({ vertical_wheel: 32, speed_multiplier: 1.2 }),
+      map('e').toMouseKey({ vertical_wheel: -32, speed_multiplier: 1.2 }),
+      map('r').toMouseKey({ horizontal_wheel: -32, speed_multiplier: 1.2 }),
 
       // C and V to go to the beginning and end of the line
-      map('c', 'left_control').to('left_arrow', 'left_command'),
-      map('v', 'left_control').to('right_arrow', 'left_command'),
+      map('c').to('left_arrow', 'left_command'),
+      map('v').to('right_arrow', 'left_command'),
     ]),
 ]
 
