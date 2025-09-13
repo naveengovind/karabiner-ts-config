@@ -40,8 +40,6 @@ const config: Array<Rule | RuleBuilder> = [
     .condition(disableOnBuiltInKeyboard)
     .manipulators([
       map('left_control').to('tab', '⌘⌥⌃⇧'),
-      map('left_control').to('left_command'),
-      map('left_control').to('tab', '⌘⌥⌃⇧'),
     ]),
 
   hyperLayer('tab', 'control-layer')
