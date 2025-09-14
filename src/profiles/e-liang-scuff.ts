@@ -17,7 +17,7 @@ const disableOnBuiltInKeyboard: Condition = {
 }
 
 const config: Array<Rule | RuleBuilder> = [
-  rule('Caps Lock to Hyperkey').manipulators([
+  rule('Caps Lock to Control/Escape').manipulators([
     map('caps_lock')
       .to('right_control')
       .toIfAlone('escape')
@@ -34,7 +34,7 @@ const config: Array<Rule | RuleBuilder> = [
       map('left_command', 'optionalAny').to('left_option'),
     ]),
 
-  rule('left_control')
+  rule('Mouse Layer')
     .condition(disableOnBuiltInKeyboard)
     .manipulators([
       // Mouse movement with ASDF
