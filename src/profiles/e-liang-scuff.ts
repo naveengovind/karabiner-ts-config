@@ -30,8 +30,8 @@ const config: Array<Rule | RuleBuilder> = [
 
   rule('Swap Left Alt and Left Command keys')
     .condition(disableOnBuiltInKeyboard).manipulators([
-      map('left_option').to('left_command'),
-      map('left_command').to('left_option'),
+      map('left_option', 'optionalAny').to('left_command'),
+      map('left_command', 'optionalAny').to('left_option'),
     ]),
 
   rule('left_control')
