@@ -38,7 +38,7 @@ const config: Array<Rule | RuleBuilder> = [
     .condition(disableOnBuiltInKeyboard)
     .manipulators([
       // Mouse movement with ASDF
-      withModifier("left_control")([
+      withModifier("left_control", "any")([
         map("d").toMouseKey({ y: -1536 }),
         map("s").toMouseKey({ y: 1536 }),
         map("a").toMouseKey({ x: -1536 }),
