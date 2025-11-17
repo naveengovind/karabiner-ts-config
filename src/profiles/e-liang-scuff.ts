@@ -70,6 +70,14 @@ const config: Array<Rule | RuleBuilder> = [
         map("v").to("right_arrow", "left_command"),
       ])
     ]),
+
+  rule("Media Controls").manipulators([
+    map("page_up").toConsumerKey("volume_increment"),
+    map("page_down").toConsumerKey("volume_decrement"),
+    map("end").toConsumerKey("mute"),
+    map("delete_forward").toConsumerKey("scan_next_track"),
+    map("home").toConsumerKey("scan_previous_track"),
+  ]),
 ]
 
 export default config
