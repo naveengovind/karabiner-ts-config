@@ -18,7 +18,7 @@ const disableOnBuiltInKeyboard: Condition = {
 
 const config: Array<Rule | RuleBuilder> = [
   rule("Caps Lock to Control/Escape").manipulators([
-    map("caps_lock")
+    map("caps_lock", "optionalAny")
       .to("right_control")
       .toIfAlone("escape")
   ]),
@@ -32,6 +32,11 @@ const config: Array<Rule | RuleBuilder> = [
     .condition(disableOnBuiltInKeyboard).manipulators([
       map("left_option", "optionalAny").to("left_command"),
       map("left_command", "optionalAny").to("left_option"),
+    ]),
+
+  rule("Escape to Backtick/Tilde")
+    .condition(disableOnBuiltInKeyboard).manipulators([
+      map("escape", "optionalAny").to("grave_accent_and_tilde"),
     ]),
 
   rule("Media Controls").manipulators([
